@@ -1,0 +1,48 @@
+﻿@model IEnumerable<StaffsModel>
+
+@{
+    ViewData["Title"] = "Staffs";
+}
+
+<div class="text-center">
+    <br />
+
+    <h1>Our Staffs and Their Roles</h1>
+    <p class="text-justify">
+        Here are detailed infos and activities of our Staffs
+    </p>
+
+
+    <div class="container p-3 bg-gradient">
+        <div class="row pt-4">
+            <div class="col-6 text-start">
+                List of Staffs
+            </div>
+            <div class="col-6 text-end">
+                <a asp-controller="Staffs" asp-action="AddStaff" class="btn btn-primary">
+                    <i class="bi bi-plus-circle"></i> &nbsp; Add New Staff
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">Staff Name</th>
+                <th scope="col">Current Role</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var staff in Model)
+            {
+                <tr>
+                    <td width="20%">@staff.StaffId</td>
+                    <td width="40%">@staff.StaffName</td>
+                    <td width="40%">@staff.Role</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

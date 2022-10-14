@@ -1,0 +1,32 @@
+﻿
+@model StaffsModel
+
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Add New Staff</h2>
+            <hr />
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div>
+            <label asp-for="StaffName">Staff Name</label>
+            <input asp-for="StaffName" class="form-control"/>
+            <span asp-validation-for="StaffName" class="text-danger"></span>
+        </div>
+        <div>
+            <label asp-for="Role">Staff Role</label>
+            <input asp-for="Role" class="form-control" />
+            <span asp-validation-for="Role" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:150px">Add Staff</button>
+        <a asp-controller="Staffs" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to Staffs</a>
+
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

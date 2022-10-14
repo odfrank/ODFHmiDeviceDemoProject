@@ -1,0 +1,36 @@
+﻿@model List<HmiDeviceProject.Models.LocationsViewModel>
+
+@{
+    ViewData["Title"] = "Locations";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Locations and Current Temperatures</h2>
+
+    <p class="m-2 text-justify">
+        Here are list of Locations in Canada and their Current Temperatures. <br>
+        We retrieve these updated data using APIs from <a href="https://api.weather.gc.ca/"> GeoMet Weather Services</a>
+    </p>
+
+    <div class="m-5 text-center">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#ID</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Current Temperature</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var location in Model)
+                {
+                    <tr>
+                        <th scope="row">@location.Id</th>
+                        <td>@location.Location</td>
+                        <td>@location.CurrentTemperature &deg;C</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
